@@ -1,6 +1,6 @@
 # This is a shell archinstall script 
 
-Please use the officale version of archinstall https://github.com/archlinux/archinstall?tab=GPL-3.0-1-ov-file
+Please use the official version of archinstall https://github.com/archlinux/archinstall?tab=GPL-3.0-1-ov-file
 
 WARNING Please read my archinstall comments and sorry for my bad english.
 
