@@ -25,6 +25,11 @@
 # cd yay
 # makepkg -si
 
+# You need to remove the # In the /etc/sudoers at the # "# %wheel ALL=(ALL:ALL) ALL" to "%wheel ALL=(ALL:ALL) ALL" this. For sudo to work.
+
+# When you a gamer then you need to remove # in the /etc/pacman.conf at  "# [multilib]" and "# Include = /etc/pacman.d/mirrorlist" to "[multilib]" and "Include = /etc/pacman.d/mirrorlist" for Steam amd Discord.
+
+# You need maybe too change the sda to your sdd. You can shen your sdd or hdd withe "fdisk -l"
 
 echo -e "
 #
@@ -171,7 +176,9 @@ echo -e "KEYMAP=de-latin1" >  /etc/vconsole.conf;
 echo -e "archlinux" >  /etc/hostname;
 
 
-yes | pacman -Syyu networkmanager sudo git grub nano efibootmgr plasma plasma-login-manager  acpid avahi iwd fish --disable-download-timeout --noconfirm;
+yes | pacman -Syyu networkmanager dolphin ark konsole sudo git grub nano efibootmgr plasma plasma-login-manager  acpid avahi iwd fish --disable-download-timeout --noconfirm;
+
+chsh -s /bin/fish
 
 systemctl enable acpid avahi-daemon NetworkManager iwd systemd-timesyncd fstrim.timer plasmalogin.service;
 
@@ -192,4 +199,3 @@ grub-mkconfig -o /boot/grub/grub.cfg"
 umount -R /mnt
 
 reboot now
-
