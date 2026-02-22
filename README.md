@@ -19,5 +19,6 @@ WARNING This is my first archinstall.
 pacman -Sy git
 
 
-My Arch Linux
+# My Arch Linux
+
 <img width="847" height="402" alt="image" src="https://github.com/user-attachments/assets/ea13f467-e72e-4c12-a9d8-a6357f75a618" />
