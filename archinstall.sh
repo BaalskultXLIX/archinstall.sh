@@ -6,9 +6,11 @@
 # WARNING When you use a old PC or slow internet please do not use my sript
 # You need to stetup your Wifi your self. I dont know how do dish on Iwctl withe a command. I know how to stetup Iwctl but i dont now your wifi and password :C.
 
-# I remove yay because in the live iso it dont work. It might work, but you'll just create more work for yourself.
-# It's simpler after installing and setting up Arch Linux. 
-# You need too boot fist in the system then you can install yay hier are the commands to install yay:
+# You need maybe git to clone the archinstll shell script
+# You can install git on the live iso
+# pacman -Sy git
+
+# I remove yay because in the live iso it dont work. It might work, but you'll just create more work for yourself. It's simpler after installing and setting up Arch Linux. You need too boot fist in the system then you can install yay hier are the commands to install yay:
 # sudo pacman -Syu
 # sudo pacman -S --needed base-devel git
 # git clone https://aur.archlinux.org/yay.git
@@ -182,4 +184,3 @@ grub-mkconfig -o /boot/grub/grub.cfg"
 umount -R /mnt
 
 reboot now
-
