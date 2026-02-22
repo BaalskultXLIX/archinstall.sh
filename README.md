@@ -2,7 +2,7 @@
 
 Please use the official version of archinstall https://github.com/archlinux/archinstall?tab=GPL-3.0-1-ov-file
 
-WARNING Please read my archinstall comments and sorry for my bad english.
+WARNING Please read my archinstall comments in the archinstall.sh and sorry for my bad english.
 
 WARNING I'm not a linux pro.
  
