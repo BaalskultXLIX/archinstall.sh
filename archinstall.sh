@@ -6,6 +6,100 @@
 # WARNING When you use a old PC or slow internet please do not use my sript
 # You need to stetup your Wifi your self. I dont know how do dish on Iwctl withe a command. I know how to stetup Iwctl but i dont now your wifi and password :C.
 
+echo -e "
+#
+# /etc/pacman.conf
+#
+# See the pacman.conf(5) manpage for option and repository directives
+
+#
+# GENERAL OPTIONS
+#
+[options]
+# The following paths are commented out with their default values listed.
+# If you wish to use different paths, uncomment and update the paths.
+#RootDir     = /
+#DBPath      = /var/lib/pacman/
+CacheDir    = /var/cache/pacman/pkg/
+#LogFile     = /var/log/pacman.log
+#GPGDir      = /etc/pacman.d/gnupg/
+#HookDir     = /etc/pacman.d/hooks/
+HoldPkg     = pacman glibc
+#XferCommand = /usr/bin/curl -L -C - -f -o %o %u
+#XferCommand = /usr/bin/wget --passive-ftp -c -O %o %u
+#CleanMethod = KeepInstalled
+Architecture = auto
+
+# Pacman won't upgrade packages listed in IgnorePkg and members of IgnoreGroup
+#IgnorePkg   =
+#IgnoreGroup =
+
+#NoUpgrade   =
+#NoExtract   =
+
+# Misc options
+#UseSyslog
+ILoveCandy
+DisableDownloadTimeout
+Color
+#NoProgressBar
+CheckSpace
+#VerbosePkgLists
+ParallelDownloads = 10
+DownloadUser = alpm
+#DisableSandboxFilesystem
+#DisableSandboxSyscalls
+
+# By default, pacman accepts packages signed by keys that its local keyring
+# trusts (see pacman-key and its man page), as well as unsigned packages.
+SigLevel    = Required DatabaseOptional
+LocalFileSigLevel = Optional
+#RemoteFileSigLevel = Required
+
+
+#
+# Repository entries are of the format:
+#       [repo-name]
+#       Server = ServerName
+#       Include = IncludePath
+#
+# The header [repo-name] is crucial - it must be present and
+# uncommented to enable the repo.
+#
+
+# The testing repositories are disabled by default. To enable, uncomment the
+# repo name header and Include lines. You can add preferred servers immediately
+# after the header, and they will be used before the default mirrors.
+
+#[core-testing]
+#Include = /etc/pacman.d/mirrorlist
+
+[core]
+Include = /etc/pacman.d/mirrorlist
+
+#[extra-testing]
+#Include = /etc/pacman.d/mirrorlist
+
+[extra]
+Include = /etc/pacman.d/mirrorlist
+
+
+# If you want to run 32 bit applications on your x86_64 system,
+# enable the multilib repositories as required here.
+
+#[multilib-testing]
+#Include = /etc/pacman.d/mirrorlist
+
+[multilib]
+Include = /etc/pacman.d/mirrorlist
+
+# An example of a custom package repository.  See the pacman manpage for
+# tips on creating your own repositories.
+#[custom]
+#SigLevel = Optional TrustAll
+#Server = file:///home/custompkgs
+" > /etc/pacman.conf
+
 swapoff /dev/sda*
 
 umount -lRA /dev/sda*
@@ -46,17 +140,18 @@ ln -sf /usr/share/zoneinfo/Europe/Berlin /etc/localtime;
 
 hwclock --systohc;
 
-echo "de_DE.UTF-8\ UTF-8" >> /etc/locale.gen;
+echo -e "de_DE.UTF-8\ UTF-8" >> /etc/locale.gen;
 
 locale-gen;
 
-echo "de_DE.UTF-8" > /etc/locale.conf;
+echo -e "de_DE.UTF-8" > /etc/locale.conf;
 
-echo "KEYMAP=de-latin1" >  /etc/vconsole.conf;
+echo -e "KEYMAP=de-latin1" >  /etc/vconsole.conf;
 
-echo "archlinux" >  /etc/hostname;
+echo -e "archlinux" >  /etc/hostname;
 
-yes | pacman -Syyu networkmanager grub nano efibootmgr plasma plasma-login-manager  acpid avahi iwd fish --disable-download-timeout --noconfirm;
+
+yes | pacman -Syyu networkmanager sudo git grub nano efibootmgr plasma plasma-login-manager  acpid avahi iwd fish --disable-download-timeout --noconfirm;
 
 systemctl enable acpid avahi-daemon NetworkManager iwd systemd-timesyncd fstrim.timer plasmalogin.service;
 
@@ -66,12 +161,22 @@ passwd;
 
 useradd -m -g users -s /bin/fish user;
 
-passwd user; usermod -aG wheel,users user;
+passwd user;
+
+usermod -aG wheel,users user;
+
+sudo pacman -S --needed git base-devel go;
+
+git clone https://aur.archlinux.org/yay.git;
+
+cd yay
+
+yes | pacman -U yay-12.5.7-1-x86_64.pkg.tar.zst yay-debug-12.5.7-1-x86_64.pkg.tar.zst
 
 grub-install --target=x86_64-efi --efi-directory=boot/ --bootloader-id=GRUB;
 
 grub-mkconfig -o /boot/grub/grub.cfg"
 
-umount -R /mnt
+#umount -R /mnt
 
-reboot now
+#reboot now
