@@ -6,6 +6,14 @@
 # WARNING When you use a old PC or slow internet please do not use my sript
 # You need to stetup your Wifi your self. I dont know how do dish on Iwctl withe a command. I know how to stetup Iwctl but i dont now your wifi and password :C.
 
+# i remove yay because in the live iso it dont work. You need too boot fist in the system then you can install yay hier are the commands to install yay:
+# sudo pacman -Syu
+# sudo pacman -S --needed base-devel git
+# git clone https://aur.archlinux.org/yay.git
+# cd yay
+# makepkg -si
+
+
 echo -e "
 #
 # /etc/pacman.conf
@@ -165,18 +173,11 @@ passwd user;
 
 usermod -aG wheel,users user;
 
-sudo pacman -S --needed git base-devel go;
-
-git clone https://aur.archlinux.org/yay.git;
-
-cd yay
-
-yes | pacman -U yay-12.5.7-1-x86_64.pkg.tar.zst yay-debug-12.5.7-1-x86_64.pkg.tar.zst
-
 grub-install --target=x86_64-efi --efi-directory=boot/ --bootloader-id=GRUB;
 
 grub-mkconfig -o /boot/grub/grub.cfg"
 
-#umount -R /mnt
+umount -R /mnt
 
-#reboot now
+reboot now
+
