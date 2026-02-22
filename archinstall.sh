@@ -20,7 +20,7 @@
 
 # I remove yay because in the live iso it dont work. It might work, but you'll just create more work for yourself. It's simpler after installing and setting up Arch Linux. You need too boot fist in the system then you can install yay hier are the commands to install yay:
 # sudo pacman -Syu
-# sudo pacman -S --needed base-devel git
+# sudo pacman -S --needed base-devel git go
 # git clone https://aur.archlinux.org/yay.git
 # cd yay
 # makepkg -si
@@ -192,3 +192,4 @@ grub-mkconfig -o /boot/grub/grub.cfg"
 umount -R /mnt
 
 reboot now
+
