@@ -11,3 +11,7 @@ WARNING This archinstall is for the archlinux live iso you cant damang your syst
 WARNING This archinstall is for my pc i have a full amd system.
 
 WARNING This is my first archinstall.
+
+You need maybe git to clone the archinstll shell script
+You can install git on the live iso
+pacman -Sy git
