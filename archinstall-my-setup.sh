@@ -325,6 +325,10 @@ grub-install --target=x86_64-efi --efi-directory=boot/ --bootloader-id=GRUB;
 
 grub-mkconfig -o /boot/grub/grub.cfg"
 
+mkdir /mnt/home/user/.config
+
+mkdir /mnt/home/user/.config/fish
+
 mkdir /mnt/home/user/.config/fish/completions
 
 mkdir /mnt/home/user/.config/fish/conf.d
@@ -698,4 +702,3 @@ root ALL=(ALL:ALL) ALL
 umount -R /mnt
 
 reboot now
-
