@@ -1,10 +1,12 @@
 #!/bin/bash
-# archinstall.sh - Automated Arch Linux installation script
+# archinstall-my-setup.sh - Automated Arch Linux installation script for my setup
 # Copyright (c) 2026 BaalskultXLIX
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation, either version 2 of the License, or
 # (at your option) any later version.
+
+# WARNING This is my setup script for my setup do not use it please
 
 # WARNING Please read my archinstall kommins and sorry for my bad english.
 # WARNING I'm not a linux pro.
