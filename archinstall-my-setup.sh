@@ -27,10 +27,6 @@
 # cd yay
 # makepkg -si
 
-# You need to remove the # In the /etc/sudoers at the # "# %wheel ALL=(ALL:ALL) ALL" to "%wheel ALL=(ALL:ALL) ALL" this. For sudo to work.
-
-# When you a gamer then you need to remove # in the /etc/pacman.conf at  "# [multilib]" and "# Include = /etc/pacman.d/mirrorlist" to "[multilib]" and "Include = /etc/pacman.d/mirrorlist" for Steam amd Discord.
-
 # You need maybe too change the sda to your sdd. You can shen your sdd or hdd withe "fdisk -l"
 
 echo -e "
@@ -702,3 +698,4 @@ root ALL=(ALL:ALL) ALL
 umount -R /mnt
 
 reboot now
+
