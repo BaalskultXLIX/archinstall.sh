@@ -27,6 +27,10 @@
 # cd yay
 # makepkg -si
 
+# You need to remove the # In the /etc/sudoers at the # "# %wheel ALL=(ALL:ALL) ALL" to "%wheel ALL=(ALL:ALL) ALL" this. For sudo to work.
+
+# When you a gamer then you need to remove # in the /etc/pacman.conf at  "# [multilib]" and "# Include = /etc/pacman.d/mirrorlist" to "[multilib]" and "Include = /etc/pacman.d/mirrorlist" for Steam amd Discord.
+
 # You need maybe too change the sda to your sdd. You can shen your sdd or hdd withe "fdisk -l"
 
 echo -e "
@@ -267,10 +271,45 @@ echo -e "KEYMAP=de-latin1" >  /etc/vconsole.conf;
 
 echo -e "archlinux" >  /etc/hostname;
 
+yes | pacman -Syyu networkmanager --disable-download-timeout --noconfirm;
 
-yes | pacman -Syyu networkmanager dolphin ark konsole sudo git grub nano efibootmgr plasma plasma-login-manager acpid avahi iwd fish --disable-download-timeout --noconfirm;
+yes | pacman -Syyu dolphin --disable-download-timeout --noconfirm;
 
-yes | pacman -Syyu gamemode gamescope fastfetch --disable-download-timeout --noconfirm;
+yes | pacman -Syyu ark --disable-download-timeout --noconfirm;
+
+yes | pacman -Syyu konsole --disable-download-timeout --noconfirm;
+
+yes | pacman -Syyu sudo --disable-download-timeout --noconfirm;
+
+yes | pacman -Syyu git --disable-download-timeout --noconfirm;
+
+yes | pacman -Syyu grub --disable-download-timeout --noconfirm;
+
+yes | pacman -Syyu nano --disable-download-timeout --noconfirm;
+
+yes | pacman -Syyu efibootmgr --disable-download-timeout --noconfirm;
+
+yes | pacman -Syyu plasma --disable-download-timeout --noconfirm;
+
+yes | pacman -Syyu plasma-login-manager --disable-download-timeout --noconfirm;
+
+yes | pacman -Syyu acpid --disable-download-timeout --noconfirm;
+
+yes | pacman -Syyu avahi --disable-download-timeout --noconfirm;
+
+yes | pacman -Syyu iwd --disable-download-timeout --noconfirm;
+
+yes | pacman -Syyu fish --disable-download-timeout --noconfirm;
+
+yes | pacman -Syyu gamemode --disable-download-timeout --noconfirm;
+
+yes | pacman -Syyu gamescope --disable-download-timeout --noconfirm;
+
+yes | pacman -Syyu fastfetch --disable-download-timeout --noconfirm;
+
+yes | pacman -Syyu steam --disable-download-timeout --noconfirm;
+
+yes | pacman -Syyu discord --disable-download-timeout --noconfirm;
 
 chsh -s /bin/fish
 
