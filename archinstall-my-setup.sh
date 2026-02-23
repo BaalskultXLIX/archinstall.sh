@@ -307,6 +307,9 @@ yes | pacman -Syyu steam --disable-download-timeout --noconfirm;
 
 yes | pacman -Syyu discord --disable-download-timeout --noconfirm;
 
+yes | pacman -Syyu --needed bash coreutils  curl  dbus  desktop-file-utils  diffutils  freetype2  gcc-libs gdk-pixbuf2  glibc  hicolor-icon-theme  libxcrypt  libxcrypt-compat  libxkbcommon-x11 lsb-release  lsof  nss  python  ttf-font  usbutils  vulkan-driver  vulkan-icd-loader xdg-user-dirs  xorg-xrandr  xz  zenity  steam-devices  lib32-alsa-plugins lib32-fontconfig  lib32-gcc-libs  lib32-glibc  lib32-libgl  lib32-libgpg-error lib32-libnm  lib32-libva  lib32-libx11  lib32-libxcrypt  lib32-libxcrypt-compat lib32-libxinerama  lib32-libxss  lib32-nss  lib32-pipewire  lib32-systemd lib32-vulkan-driver  lib32-vulkan-icd-loader --disable-download-timeout --noconfirm;
+
+
 chsh -s /bin/fish
 
 systemctl enable acpid avahi-daemon NetworkManager iwd systemd-timesyncd fstrim.timer plasmalogin.service;
