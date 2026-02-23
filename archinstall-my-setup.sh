@@ -294,6 +294,20 @@ grub-install --target=x86_64-efi --efi-directory=boot/ --bootloader-id=GRUB;
 
 grub-mkconfig -o /boot/grub/grub.cfg"
 
+mkdir /mnt/home/user/.config/fish/completions
+
+mkdir /mnt/home/user/.config/fish/conf.d
+
+mkdir /mnt/home/user/.config/fish/functions
+
+touch /mnt/home/user/.config/fish/config.fish
+
+touch /mnt/home/user/.config/fish/fish_variables
+
+touch /mnt/home/user/.config/fish/conf.d/fish_frozen_theme.fish
+
+touch /mnt/home/user/.config/fish/functions/fish_prompt.fish
+
 echo -e "
 
 if status is-interactive
