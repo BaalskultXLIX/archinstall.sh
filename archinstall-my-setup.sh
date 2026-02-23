@@ -274,7 +274,7 @@ echo -e "archlinux" >  /etc/hostname;
 
 yes | pacman -Syyu networkmanager dolphin ark konsole sudo git grub nano efibootmgr plasma plasma-login-manager acpid avahi iwd fish --disable-download-timeout --noconfirm;
 
-yes | pacman -Syyu gamemod gamescope fastfetch --disable-download-timeout --noconfirm;
+yes | pacman -Syyu gamemode gamescope fastfetch --disable-download-timeout --noconfirm;
 
 chsh -s /bin/fish
 
@@ -508,4 +508,3 @@ fastfetch
 umount -R /mnt
 
 reboot now
-
