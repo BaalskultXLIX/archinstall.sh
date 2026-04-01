@@ -1,24 +1,42 @@
-# This is a shell archinstall script 
+# ArchInstall.sh
 
-This archinstall shell script was originally just for my own use, but I figured why not make it public, and besides, I can just copy it with git clone, which is easier for me to do.
+## Comprehensive Documentation
 
-Please use the official version of archinstall https://github.com/archlinux/archinstall?tab=GPL-3.0-1-ov-file
+### Features
+- Easy installation of Arch Linux.
+- Customizable installation scripts.
+- Built-in utilities for troubleshooting.
 
-WARNING Please read my archinstall comments in the archinstall.sh and sorry for my bad english.
+### Installation
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/BaalskultXLIX/archinstall.sh.git
+   ```
+2. Navigate into the directory:
+   ```bash
+   cd archinstall.sh
+   ```
+3. Run the installation script:
+   ```bash
+   ./install.sh
+   ```
 
-WARNING I'm not a linux pro.
- 
-WARNING This archinstall is for the archlinux live iso you cant damang your system
+### Usage
+- Follow the prompts during installation to customize your setup.
+- Use the provided utilities for troubleshooting.
 
-WARNING This archinstall is for my pc i have a full amd system.
-
-WARNING This is my first archinstall.
-
-# You need maybe git to clone the archinstll shell script. You can install git on the live iso
-
-pacman -Sy git
-
-
-# My Arch Linux
-
-<img width="847" height="402" alt="image" src="https://github.com/user-attachments/assets/ea13f467-e72e-4c12-a9d8-a6357f75a618" />
+### Contributing
+- Fork the repository.
+- Create a new branch for your feature or fix:
+   ```bash
+   git checkout -b feature-name
+   ```
+- Commit your changes:
+   ```bash
+   git commit -m "Add some feature"
+   ```
+- Push to the branch:
+   ```bash
+   git push origin feature-name
+   ```
+- Open a pull request to contribute your changes.
