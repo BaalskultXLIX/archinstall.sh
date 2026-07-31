@@ -312,7 +312,7 @@ yes | pacman -S discord --disable-download-timeout --noconfirm;
 
 yes | pacman -S firefox --disable-download-timeout --noconfirm;
 
-yes | pacman -S bash coreutils  curl  dbus  desktop-file-utils  diffutils  freetype2  gcc-libs gdk-pixbuf2  glibc  hicolor-icon-theme  libxcrypt  kate libxcrypt-compat  libxkbcommon-x11 lsb-release  lsof  nss  python  ttf-font  usbutils  vulkan-driver  vulkan-icd-loader xdg-user-dirs  xorg-xrandr  xz  zenity  steam-devices  lib32-alsa-plugins lib32-fontconfig  lib32-gcc-libs  lib32-glibc  lib32-libgl  lib32-libgpg-error lib32-libnm  lib32-libva  lib32-libx11  lib32-libxcrypt  lib32-libxcrypt-compat lib32-libxinerama  lib32-libxss  lib32-nss  lib32-pipewire  lib32-systemd lib32-vulkan-driver  lib32-vulkan-icd-loader --disable-download-timeout --noconfirm;
+yes | pacman -S bash coreutils  curl  dbus tesseract tesseract-data-deu desktop-file-utils  diffutils  freetype2  gcc-libs gdk-pixbuf2  glibc  hicolor-icon-theme  libxcrypt  kate libxcrypt-compat  libxkbcommon-x11 lsb-release  lsof  nss  python  ttf-font  usbutils  vulkan-driver  vulkan-icd-loader xdg-user-dirs  xorg-xrandr  xz  zenity  steam-devices  lib32-alsa-plugins lib32-fontconfig  lib32-gcc-libs  lib32-glibc  lib32-libgl  lib32-libgpg-error lib32-libnm  lib32-libva  lib32-libx11  lib32-libxcrypt  lib32-libxcrypt-compat lib32-libxinerama  lib32-libxss  lib32-nss  lib32-pipewire  lib32-systemd lib32-vulkan-driver  lib32-vulkan-icd-loader --disable-download-timeout --noconfirm;
 
 
 chsh -s /bin/fish
