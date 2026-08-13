@@ -27,9 +27,50 @@
 # cd yay
 # makepkg -si
 
-# You need maybe too change the sda to your sdd. You can shen your sdd or hdd withe "fdisk -l"
+# You need maybe too change the sda to your sdd. You can see your sdd or hdd withe "fdisk -l"
 
 echo -e "
+
+de_DE.UTF-8\ UTF-8
+
+" >> /etc/locale.gen
+
+locale-gen
+
+ln -sf /usr/share/zoneinfo/Europe/Berlin /etc/localtime
+
+hwclock --systohc
+
+localectl --no-convert set-keymap de-latin1
+
+localectl --no-convert set-x11-keymap de de
+
+localectl --no-convert set-locale LANG=de_DE.UTF-8
+
+echo -e "
+
+LANG=de_DE.UTF-8
+LANGUAGE=de_DE
+#LC_COLLATE=C
+LC_TIME=de_DE.UTF-8
+LC_MONETARY=de_DE.UTF-8
+LC_NUMERIC=de_DE.UTF-8
+LC_CTYPE=de_DE.UTF-8
+LC_MESSAGES=de_DE.UTF-8
+LC_PAPER=de_DE.UTF-8
+LC_MEASUREMENT=de_DE.UTF-8
+LC_NAME=de_DE.UTF-8
+LC_ADDRESS=de_DE.UTF-8
+LC_TELEPHONE=de_DE.UTF-8
+LC_IDENTIFICATION=de_DE.UTF-8
+LC_ALL=
+
+" > /etc/locale.conf
+
+echo -e "KEYMAP=de-latin1" >  /etc/vconsole.conf
+
+echo -e "
+
 #
 # /etc/pacman.conf
 #
@@ -121,7 +162,10 @@ Include = /etc/pacman.d/mirrorlist
 #[custom]
 #SigLevel = Optional TrustAll
 #Server = file:///home/custompkgs
+
 " > /etc/pacman.conf
+
+yes | pacman -Syyu --disable-download-timeout --noconfirm
 
 swapoff /dev/sda*
 
@@ -157,6 +201,7 @@ pacstrap -K /mnt base linux linux-firmware
 genfstab -U /mnt >> /mnt/etc/fstab
 
 echo -e "
+
 #
 # /etc/pacman.conf
 #
@@ -248,21 +293,29 @@ Include = /etc/pacman.d/mirrorlist
 #[custom]
 #SigLevel = Optional TrustAll
 #Server = file:///home/custompkgs
+
 " > /mnt/etc/pacman.conf
 
 # I don't know how to change the terminal without aborting the archinstall script.
 arch-chroot /mnt bash -c "
 
+echo -e "
+
+de_DE.UTF-8\ UTF-8
+
+" >> /etc/locale.gen;
+
+locale-gen;
+
 ln -sf /usr/share/zoneinfo/Europe/Berlin /etc/localtime;
 
 hwclock --systohc;
 
-echo -e "
+localectl --no-convert set-keymap de-latin1;
 
-de_DE.UTF-8\ UTF-8
-" >> /etc/locale.gen;
+localectl --no-convert set-x11-keymap de de;
 
-locale-gen;
+localectl --no-convert set-locale LANG=de_DE.UTF-8;
 
 echo -e "de_DE.UTF-8" > /etc/locale.conf;
 
@@ -288,10 +341,6 @@ yes | pacman -S nano --disable-download-timeout --noconfirm;
 
 yes | pacman -S efibootmgr --disable-download-timeout --noconfirm;
 
-yes | pacman -S plasma --disable-download-timeout --noconfirm;
-
-yes | pacman -S plasma-login-manager --disable-download-timeout --noconfirm;
-
 yes | pacman -S acpid --disable-download-timeout --noconfirm;
 
 yes | pacman -S avahi --disable-download-timeout --noconfirm;
@@ -306,18 +355,47 @@ yes | pacman -S gamescope --disable-download-timeout --noconfirm;
 
 yes | pacman -S fastfetch --disable-download-timeout --noconfirm;
 
-yes | pacman -S steam lib32-vulkan-radeon vulkan-radeon  --disable-download-timeout --noconfirm;
-
-yes | pacman -S discord --disable-download-timeout --noconfirm;
-
-yes | pacman -S firefox --disable-download-timeout --noconfirm ;
+yes | pacman -S firefox --disable-download-timeout --noconfirm;
 
 yes | pacman -S bash coreutils  curl  dbus tesseract tesseract-data-deu desktop-file-utils  diffutils  freetype2  gcc-libs gdk-pixbuf2  glibc  hicolor-icon-theme  libxcrypt  kate libxcrypt-compat  libxkbcommon-x11 lsb-release  lsof  nss  python  ttf-font  usbutils  vulkan-driver  vulkan-icd-loader xdg-user-dirs  xorg-xrandr  xz  zenity  steam-devices  lib32-alsa-plugins lib32-fontconfig  lib32-gcc-libs  lib32-glibc  lib32-libgl  lib32-libgpg-error lib32-libnm  lib32-libva  lib32-libx11  lib32-libxcrypt  lib32-libxcrypt-compat lib32-libxinerama  lib32-libxss  lib32-nss  lib32-pipewire  lib32-systemd lib32-vulkan-driver  lib32-vulkan-icd-loader --disable-download-timeout --noconfirm;
 
+yes | pacman -S proton-vpn-cli base-devel linux linux-headers git btrfs-progs --disable-download-timeout --noconfirm;
 
-chsh -s /bin/fish
+yes | pacman -S gparted bcachefs-tools btrfs-progs dosfstools exfatprogs f2fs-tools gpart jfsutils mtools nilfs-utils polkit udftools xfsprogs xorg-xhost --disable-download-timeout --noconfirm;
 
-systemctl enable acpid avahi-daemon NetworkManager iwd systemd-timesyncd fstrim.timer plasmalogin.service;
+yes | pacman -S xdg-desktop-portal-impl xorg-fonts-misc flatpak --disable-download-timeout --noconfirm;
+
+yes | pacman -S pipewire --disable-download-timeout --noconfirm;
+
+yes | pacman -S libappindicator-gtk3 gst-plugin-pipewire pipewire-alsa pipewire-audio pipewire-ffado pipewire-jack-client pipewire-jack pipewire-libcamera pipewire-onnx pipewire-pulse pipewire-session-manager pipewire-roc pipewire-v4l2 pipewire-x11-bell pipewire-zeroconf realtime-privileges rtkit --disable-download-timeout --noconfirm;
+
+yes | pacman -S pipewire --disable-download-timeout --noconfirm;
+
+yes | pacman -S cups system-config-printer hplip ipp-usb logrotate colord ufw ufw-extras --disable-download-timeout --noconfirm;
+
+yes | pacman -S scim bluez-obex dosbox gst-plugins-bad gst-plugins-good gst-plugins-ugly libgphoto2 samba sane unixodbc wine-gecko wine-mono --disable-download-timeout --noconfirm;
+
+yes | pacman -S noto-fonts-cjk otf-ipafont ttf-liberation ttf-dejavu noto-fonts-emoji ttf-twemoji --noconfirm;
+
+yes | pacman -S plasma --disable-download-timeout --noconfirm;
+
+yes | pacman -S plasma-login-manager --disable-download-timeout --noconfirm;
+
+yes | pacman -S virtualbox virtualbox-host-dkms --disable-download-timeout --noconfirm;
+
+yes | pacman -S steam lutris vulkan-tools python-protobuf fluidsynth gvfs opencl-headers opencl-mesa lib32-gnutls xorg-xgamma gamemode python-pefile winetricks vkd3d lact lib32-vulkan-radeon vulkan-radeon --disable-download-timeout --noconfirm;
+
+yes | pacman -S discord --disable-download-timeout --noconfirm;
+
+yes | pacman -S gparted --disable-download-timeout --noconfirm;
+
+yes | pacman -Rddc plasma-bigscreen --disable-download-timeout --noconfirm;
+
+fc-cache -fv;
+
+chsh -s /bin/fish;
+
+systemctl enable acpid bluetooth cups avahi-daemon NetworkManager iwd systemd-timesyncd fstrim.timer plasmalogin.service;
 
 mkinitcpio -P;
 
@@ -327,7 +405,7 @@ useradd -m -g users -s /bin/fish user;
 
 passwd user;
 
-usermod -aG wheel,users user;
+usermod -aG alpm,cups,gamemode,flatpak,games,vboxusers,video,wheel,log,render,scanner,sddm,users user;
 
 grub-install --target=x86_64-efi --efi-directory=boot/ --bootloader-id=GRUB;
 
@@ -337,8 +415,9 @@ echo -e "
 
 ## Uncomment to allow members of group wheel to execute any command
  %wheel ALL=(ALL:ALL) ALL
+
 " >> /mnt/etc/sudoers
 
 umount -R /mnt
 
-reboot now
+reboot now 
